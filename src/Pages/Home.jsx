@@ -8,6 +8,8 @@ function Home() {
   const [selectCategory, setSelectCategory] = useState(null);
   const [jobs, setJobs] = useState([]);
   const [query, setQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
     const handleInputChange = (event) =>{
         setQuery(event.target.value);
@@ -58,7 +60,10 @@ function Home() {
         <div className="bg-white p-4 rounded col-span-1">
           <Sidebar handleChange={handleChange} handleClick={handleClick}/>
         </div>
-        <div className="col-span-2 bg-white p-4"><Jobs result={result}/></div>
+
+        <div className="col-span-2 bg-white p-4">
+          {result.length > 0 ? (<Jobs result={result}/>) : <><h3>{result.length} Jobs</h3></>}
+        </div>
       </div>
     </div>
   )
