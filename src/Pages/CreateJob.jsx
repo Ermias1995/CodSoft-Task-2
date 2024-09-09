@@ -1,12 +1,31 @@
+import { useState } from "react"
 import {useForm} from "react-hook-form"
+
 function CreateJob() {
+    const [selectedOption, setSelectedOption] = useState(null);
     const {
         register,
-        handleSubmit,
+        handleSubmit,reset,
         formState: { errors },
       } = useForm()
     
-      const onSubmit = (data) => console.log(data)
+      const onSubmit = (data) => {
+        data.skills = selectedOption;
+        console.log(data);
+        fetch("http://localhost:3000/post-job", {
+            method: "POST",
+            headers: {"content-type" : 'application/json'},
+            body: JSON.stringify(data)
+        })
+            .then(res=>res.json())
+            .then((result)=>{
+                console.log(result);
+                if(result.acknowledged === true){
+                    alert("Job Posted successfully..")
+                }
+                reset();
+            });
+      }
 
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
@@ -85,9 +104,7 @@ function CreateJob() {
                             <option value="Part-time">Part-time</option>
                         </select>
                     </div>     
-                </div>
-
-                
+                </div>  
 
                 <input type="submit" className="bg-secondary rounded-sm text-white font-bold py-2 px-2 my-4"/>
             </form>

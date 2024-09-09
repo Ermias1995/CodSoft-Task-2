@@ -11,7 +11,7 @@ function Location({handleChange}) {
                 <span className="checkmark"></span>All
             </label>
 
-            <InputField handleChange={handleChange} value="Addis-Ababa" title="Addis Ababa" name="test"/>
+            <InputField handleChange={handleChange} value="Addis Ababa" title="Addis Ababa" name="test"/>
             <InputField handleChange={handleChange} value="BahirDar" title="BahirDar" name="test"/>
             <InputField handleChange={handleChange} value="Mekele" title="Mekele" name="test"/>
             <InputField handleChange={handleChange} value="Jimma" title="Jimma" name="test"/>
