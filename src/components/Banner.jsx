@@ -1,11 +1,7 @@
 import { useState } from 'react'
 import {FiSearch} from 'react-icons/fi'
-function Banner() {
-    const [query, setQuery] = useState("");
-    const handleInputChange = (event) =>{
-        setQuery(event.target.value);
-        console.log(event.target.value);
-    }
+
+function Banner({query, handleInputChange}) {
   return (
     <>
     <div className="">
@@ -20,7 +16,6 @@ function Banner() {
                 <input type="text" name="title" id="title" placeholder="Search for jobs you are interested in" className="block flex-1 border-0 bg-transparent
                 py-1.5 pl-8 text-gray-900 placeholder:text-gray-400 focus:right-0 sm:text-sm sm:leading-6"
                 onChange={handleInputChange}
-                value={query}
                 />
                 <FiSearch className='absolute mt-2.5 ml-2 text-gray-400'/>
             <button type='submit' className='bg-secondary py-2 px-8 text-white rounded'>Search</button>
