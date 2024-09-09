@@ -6,8 +6,8 @@ import Jobs from "./Jobs";
 function Home() {
   const [selectCategory, setSelectCategory] = useState(null);
   const [jobs, setJobs] = useState([]);
-
   const [query, setQuery] = useState("");
+
     const handleInputChange = (event) =>{
         setQuery(event.target.value);
         console.log(event.target.value);
@@ -51,8 +51,11 @@ function Home() {
   return (
     <div>
       <Banner query={query} handleInputChange={handleInputChange}/>
-      <div>
-        <Jobs result = {result}/>
+
+      {/* Home page */}
+      <div className="bg-gray-100 md:grid grid-cols-2 gap-8 lg:px-24 px-4 py-12">
+        <div className="bg-white p-4 rounded">Left</div>
+        <div className="col-span-1 bg-white p-4"><Jobs result={result}/></div>
       </div>
     </div>
   )
