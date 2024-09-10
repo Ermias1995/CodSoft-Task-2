@@ -4,6 +4,7 @@ import Home from "../Pages/Home";
 import About from "../Pages/About";
 import CreateJob from "../Pages/CreateJob";
 import Myjobs from "../Pages/Myjobs";
+import Login from "../components/Login";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
         {path: "/my-jobs", element:<Myjobs/>}
       ]
     },
+    {
+      path: "/login",
+      element: <Login/>
+    }
   ]);
 
   export default router;
