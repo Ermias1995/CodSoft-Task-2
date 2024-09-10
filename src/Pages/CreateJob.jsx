@@ -96,6 +96,12 @@ function CreateJob() {
 
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
                     <div className="lg:w-1/2 w-full">
+                        <label className="block mb-2 text-lg">Posted By</label>
+                        <input type="text" placeholder="ermiascode@gmail.com" 
+                               {...register("postedBy")} className="block w-full flex-1 border-1 py-1.5 pl-2 placeholder:text-gray-300"/>
+                    </div>
+
+                    <div className="lg:w-1/2 w-full">
                         <label className="block mb-2 text-lg">Employment Type</label>
                         <select {...register("employmentType")} className="block w-full flex-1 border-1 py-1.5 pl-2 placeholder:text-gray-300">
                             <option value="">Choose your Employment Type</option>
